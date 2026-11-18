@@ -41,14 +41,17 @@ Full duplicate contract-bridge scoring: trick points, part-score/game/slam
 bonuses, overtricks, undertricks across undoubled/doubled/redoubled and
 vulnerability, insult bonus. Verified against a table of known scores.
 
-### Sprint 4 — Web app ⏳ (next)
-- Deal view (four hands / single-hand practice).
-- Bidding box driven by `legalCalls`.
-- Auction ladder + contract display.
-- Score entry → `scoreContract` result.
-- Practice mode: random deal, bid, reveal par/score. PWA manifest.
+### Sprint 4 — Web app ✅
+React + Vite SPA in `apps/web`, consuming the engine via a Vite source alias.
+- Deal view: four seats with HCP, "show all hands" toggle for review vs. practice.
+- Bidding box: every call rendered, legality enforced by `isLegalCall` (illegal
+  calls disabled), with undo.
+- Auction table laid out under the dealer with turn highlighting.
+- Score panel: trick-count slider → `scoreContract`, made/down verdict and a
+  points breakdown.
+- Dealer and vulnerability randomised per board; seed shown for reproducibility.
 
-### Sprint 5 — Mobile shell ⏳
+### Sprint 5 — Mobile shell ⏳ (next)
 - Expo app wrapping the deployed web app in a WebView (`EXPO_PUBLIC_WEB_URL`).
 - Push via expo-notifications, deep links, EAS build config for iOS + Android.
 

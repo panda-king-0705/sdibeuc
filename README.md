@@ -14,8 +14,8 @@ Built as a sprint plan (see `docs/SDLC.md`):
 | 1 | Core engine: cards, deal, hand evaluation | ✅ |
 | 2 | Auction engine: bidding & legality | ✅ |
 | 3 | Scoring engine: contract-bridge scoring | ✅ |
-| 4 | Web app (React + Vite) | ⏳ next |
-| 5 | Mobile shell (Expo, iOS + Android) | ⏳ planned |
+| 4 | Web app (React + Vite) | ✅ |
+| 5 | Mobile shell (Expo, iOS + Android) | ⏳ next |
 
 ## Layout
 
@@ -60,6 +60,21 @@ pnpm install
 pnpm -r test        # run all package tests
 pnpm -r typecheck
 ```
+
+### Run the web app
+
+The web client (`apps/web`) is React + Vite and reads the engine's TypeScript
+source directly via a Vite alias — no build step for the engine.
+
+```bash
+cd apps/web
+npm install         # or pnpm install from the repo root
+npm run dev         # http://localhost:5173
+```
+
+Deal a board, run the auction with the bidding box (illegal calls are disabled
+by the engine), and the score panel computes the result as you slide the trick
+count. "Show all hands" toggles review vs. single-hand practice.
 
 ## License
 
